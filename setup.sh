@@ -17,6 +17,6 @@ if [[ ! -f "$HOME/.ssh/id_ed25519" && ! -f "$HOME/.ssh/id_rsa" ]]; then
     ssh-keygen -t ed25519 -N "" -f "$HOME/.ssh/id_ed25519"
     if command -v gh >/dev/null 2>&1 && gh auth status >/dev/null 2>&1; then
         gh ssh-key add "$HOME/.ssh/id_ed25519.pub" --title "$(hostname)-$(date +%Y%m%d)" || true
-        echo "[OK] 公開鍵をGitHubへ自動登録しました（約1分以内に server / bazzite へ反映されます）"
+        echo "[OK] 公開鍵をGitHubへ自動登録しました（接続時に即座に認証されます）"
     fi
 fi
