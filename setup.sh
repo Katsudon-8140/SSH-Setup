@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-echo "=== 1. パッケージ確認・インストール ==="
+echo "=== 1. 必要なパッケージの一括インストール (openssh, git, gh, curl) ==="
 if command -v pkg >/dev/null 2>&1; then
-    pkg update -y && pkg install -y openssh gh curl
+    DEBIAN_FRONTEND=noninteractive pkg update -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold"
+    DEBIAN_FRONTEND=noninteractive pkg install -y openssh git gh curl
+elif command -v apt-get >/dev/null 2>&1; then
+    sudo apt-get update -y && sudo apt-get install -y openssh-client git gh curl
 fi
 
 echo "=== 2. ~/.ssh/config (エイリアス設定) の配置 ==="
@@ -15,11 +18,13 @@ Host server
     HostName ssh.sohhoshi.com
     Port 52222
     User soh
+    StrictHostKeyChecking accept-new
 
 Host bazzite
     HostName ssh.sohhoshi.com
     Port 52223
     User soh
+    StrictHostKeyChecking accept-new
 EOF
 chmod 600 "$HOME/.ssh/config"
 echo "[OK] ~/.ssh/config を設定しました (ssh server / ssh bazzite)"
