@@ -13,7 +13,7 @@ curl -fsSL https://raw.githubusercontent.com/Katsudon-8140/dotfiles/main/setup.s
 ```
 
 ### このコマンドが自動でやること（質問への回答不要）
-1. **必要ツールの導入**: `openssh`, `gh`, `curl` を自動インストール
+1. **必要ツールの導入**: `openssh`, `git`, `gh`, `curl` を自動インストール
 2. **エイリアス設定**: `~/.ssh/config` に `server` と `bazzite` を自動書き込み
 3. **SSH鍵の自動生成**: パスフレーズなしで `~/.ssh/id_ed25519` を自動作成（質問なし）
 4. **GitHubへ公開鍵を自動登録**: `gh auth login` の対話質問をすべてスキップして直接ブラウザ認証を開き、認証後に公開鍵を GitHub（`https://github.com/Katsudon-8140.keys`）へ自動アップロード
