@@ -1,2 +1,26 @@
-# dotfiles
-SSH config &amp; setup script for Termux / PC
+# SSH Setup (Termux / Linux / PC)
+
+新しいスマホ（Termux）やPCで `ssh server` / `ssh bazzite` を使えるようにする初期セットアップです。
+サーバー側（`server` / `bazzite`）は `https://github.com/Katsudon-8140.keys` を毎分自動同期しているため、**公開鍵の手動コピペは不要**です。
+
+## スマホ（Termux）でのセットアップ手順
+
+Termuxを開いて以下を順番にコピペして実行するだけです。
+
+```bash
+# 1. 必要なパッケージをインストール
+pkg update -y && pkg install -y openssh git github-cli
+
+# 2. GitHubにログイン（対話の中でSSH鍵の生成＆GitHubへのアップロードも自動で行われます）
+gh auth login -p ssh
+
+# 3. このリポジトリを取得してエイリアス（~/.ssh/config）を反映
+gh repo clone Katsudon-8140/dotfiles ~/.dotfiles && bash ~/.dotfiles/setup.sh
+```
+
+完了後（最大1分以内）にそのまま以下で接続できます：
+
+```bash
+ssh server
+ssh bazzite
+```
