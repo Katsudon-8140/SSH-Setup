@@ -1,0 +1,9 @@
+Host server
+    HostName ssh.sohhoshi.com
+    Port 52222
+    User soh
+
+Host bazzite
+    HostName ssh.sohhoshi.com
+    Port 52223
+    User soh
