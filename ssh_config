@@ -2,8 +2,10 @@ Host server
     HostName ssh.sohhoshi.com
     Port 52222
     User soh
+    StrictHostKeyChecking accept-new
 
 Host bazzite
     HostName ssh.sohhoshi.com
     Port 52223
     User soh
+    StrictHostKeyChecking accept-new
