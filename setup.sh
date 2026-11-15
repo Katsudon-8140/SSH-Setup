@@ -3,7 +3,7 @@ set -euo pipefail
 
 echo "=== 1. パッケージ確認・インストール ==="
 if command -v pkg >/dev/null 2>&1; then
-    pkg update -y && pkg install -y openssh github-cli curl
+    pkg update -y && pkg install -y openssh gh curl
 fi
 
 echo "=== 2. ~/.ssh/config (エイリアス設定) の配置 ==="
