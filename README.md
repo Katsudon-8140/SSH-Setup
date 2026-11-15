@@ -1,7 +1,7 @@
 # SSH Setup (Termux / Linux / PC)
 
 新しいスマホ（Termux）やPCで `ssh server` / `ssh bazzite` を使えるようにする初期セットアップです。
-サーバー側（`server` / `bazzite`）は `https://github.com/Katsudon-8140.keys` を毎分自動同期しているため、**公開鍵の手動コピペは不要**です。
+サーバー側（`server`）は `AuthorizedKeysCommand` により、**未登録の鍵でSSH接続が来た瞬間にだけ `https://github.com/Katsudon-8140.keys` を自動確認して認証＆キャッシュ**するため、公開鍵の手動コピペや待ち時間は不要です。
 
 ## スマホ（Termux）でのセットアップ手順
 
@@ -18,7 +18,7 @@ gh auth login -p ssh
 gh repo clone Katsudon-8140/dotfiles ~/.dotfiles && bash ~/.dotfiles/setup.sh
 ```
 
-完了後（最大1分以内）にそのまま以下で接続できます：
+完了後、待ち時間なしでそのまま接続できます：
 
 ```bash
 ssh server
