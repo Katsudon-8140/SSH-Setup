@@ -1,11 +1,17 @@
-# dotfiles (SSH Setup)
+# SSH-Setup
 
 新端末から `server` / `bazzite` へSSH接続するための初期設定。
 
 ## セットアップ
 
+### Linux / Android (Termux) / macOS / WSL
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Katsudon-8140/dotfiles/main/setup.sh | bash
+curl -fsSL https://raw.githubusercontent.com/Katsudon-8140/SSH-Setup/main/setup.sh | bash
+```
+
+### Windows (PowerShell)
+```powershell
+curl.exe -fsSL https://raw.githubusercontent.com/Katsudon-8140/SSH-Setup/main/setup.ps1 | powershell -
 ```
 
 1. 必要パッケージ導入、`~/.ssh/config` 配置、SSH鍵生成、GitHubへの公開鍵登録まで自動実行（ブラウザで8桁のコードを承認するだけ）。
